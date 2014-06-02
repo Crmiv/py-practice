@@ -11,7 +11,8 @@ class TitleParser(HTMLParser):
 		HTMLParser.__init__(self)
 	
 	def handle_starttag(self, tag, attrs):
-		if tag == 'title':
+
+		if tag == 'script':
 			self.readingtitle = 1 
 	
 	def handle_data(self, data):
@@ -19,7 +20,7 @@ class TitleParser(HTMLParser):
 			self.title = data
 	
 	def handle_endtag(self, tag):
-		if tag == 'title':
+		if tag == 'script':
 			self.readingtitle = 0
 
 	def gettitle(self):

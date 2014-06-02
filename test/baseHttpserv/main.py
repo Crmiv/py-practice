@@ -14,9 +14,12 @@ class RequestHandler(BaseHTTPRequestHandler):
 	def do_HEAD(self):
 		self._writeheaders()
 	
+	def do_something(self):
+		self.wfile.write("""azx""")
+
 	def do_GET(self):
 		self._writeheaders()
-		self.wfile.write("""<HTML><HEAD><TITLE>Sample Page</TITLE></HEAD><BODY>this is a sample html page</BODY></HTML>""")
+		self.wfile.write("""hhh""")
 
 serveraddr = ('', 8765)
 srvr = HTTPServer(serveraddr, RequestHandler)
